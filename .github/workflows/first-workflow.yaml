@@ -2,7 +2,7 @@ name: First workflow
 on: push
 jobs:
     build-job:
-        runs-on: ubuutu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Build the app
               run: |
