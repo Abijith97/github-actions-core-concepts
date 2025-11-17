@@ -6,5 +6,9 @@ jobs:
         steps:
             - name: Test job welcome message
               run: echo "Executing the test job"
+
+            - name: Checkout repository
+              uses: actions/checkout@v5.0.1
+
             - name: ReadME file content
               run: cat README.md 
