@@ -8,10 +8,20 @@ jobs:
               run: |
                 sleep 3
                 echo "building the app ..." > app.txt
+            
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: app-text-file
+                path: app.txt
     test-job:
         needs: build-job
         runs-on: ubuntu-latest
         steps:
+            - name: Download the artifact
+              uses: actions/download-artifact@v5
+              with:
+                name: app-txt-file         
             - name: Test the app
               run: |
                 sleep 3
@@ -21,6 +31,10 @@ jobs:
         needs: test-job
         runs-on: ubuntu-latest
         steps:
+            - name: Download the artifact
+              uses: actions/download-artifact@v5
+              with:
+                name: app-txt-file
             - name: Deploy the app
               run: |
                 sleep 3
