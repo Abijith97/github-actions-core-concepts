@@ -4,7 +4,7 @@ jobs:
     build-job:
         runs-on: ubuntu-latest
         steps:
-            - name: Build the app
+            - name: Building the app
               run: |
                 echo ${{ secrets.DOCKER_USER }}
                 sleep 180
