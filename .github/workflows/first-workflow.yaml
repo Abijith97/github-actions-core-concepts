@@ -6,8 +6,8 @@ jobs:
         steps:
             - name: Build the app
               run: |
-                echo {{ secrets.DOCKER_USER }}
-                sleep $SLEEP_TIME
+                echo ${{ secrets.DOCKER_USER }}
+                sleep ${{ vars.SLEEP_TIME }}
                 echo "building the app ..." > app.txt
             
             - name: Upload build artifact
@@ -25,7 +25,7 @@ jobs:
                     name: app-text-file         
             - name: Test the app
               run: |
-                sleep $SLEEP_TIME
+                sleep ${{ vars.SLEEP_TIME }}
                 cat app.txt
                 echo "testing the app ..." >> app.txt
     deploy-job:
@@ -38,6 +38,6 @@ jobs:
                     name: app-text-file
             - name: Deploy the app
               run: |
-                sleep $SLEEP_TIME
+                sleep ${{ vars.SLEEP_TIME }}
                 cat app.txt
                 echo "deploying the app ..." >> app.txt
