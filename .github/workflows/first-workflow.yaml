@@ -5,10 +5,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Build the app
-              timeout-minutes: 1
               run: |
                 echo ${{ secrets.DOCKER_USER }}
-                sleep 100
+                sleep 180
                 echo "building the app ..." > app.txt
             
             - name: Upload build artifact
