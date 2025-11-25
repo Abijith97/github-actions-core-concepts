@@ -6,7 +6,7 @@ jobs:
         steps:
             - name: Build the app
               run: |
-                echo username is {{ secrets.USERNAME }}
+                echo {{ secrets.USERNAME }}
                 sleep $SLEEP_TIME
                 echo "building the app ..." > app.txt
             
