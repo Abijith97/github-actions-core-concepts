@@ -3,10 +3,10 @@ on: push
 jobs:
     build-job:
         runs-on: ubuntu-latest
+        env:
+            sleep_time: 3
         steps:
             - name: Build the app
-              env:
-                  sleep_time: 3
               run: |
                 sleep $sleep_time
                 echo "building the app ..." > app.txt
