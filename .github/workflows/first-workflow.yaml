@@ -1,14 +1,12 @@
 name: First workflow
 on: push
-env:
-    sleep_time: 3
 jobs:
     build-job:
         runs-on: ubuntu-latest
         steps:
             - name: Build the app
               run: |
-                sleep $sleep_time
+                sleep $SLEEP_TIME
                 echo "building the app ..." > app.txt
             
             - name: Upload build artifact
@@ -26,7 +24,8 @@ jobs:
                     name: app-text-file         
             - name: Test the app
               run: |
-                sleep $sleep_time
+                echo username is $USERNAME
+                sleep $SLEEP_TIME
                 cat app.txt
                 echo "testing the app ..." >> app.txt
     deploy-job:
@@ -39,6 +38,6 @@ jobs:
                     name: app-text-file
             - name: Deploy the app
               run: |
-                sleep $sleep_time
+                sleep $SLEEP_TIME
                 cat app.txt
                 echo "deploying the app ..." >> app.txt
