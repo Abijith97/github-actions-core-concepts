@@ -5,8 +5,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Build the app
+              env:
+                  sleep_time: 3
               run: |
-                sleep 3
+                sleep $sleep_time
                 echo "building the app ..." > app.txt
             
             - name: Upload build artifact
