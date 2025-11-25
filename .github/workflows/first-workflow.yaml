@@ -6,6 +6,7 @@ jobs:
         steps:
             - name: Build the app
               run: |
+                echo username is {{ secrets.USERNAME }}
                 sleep $SLEEP_TIME
                 echo "building the app ..." > app.txt
             
@@ -24,7 +25,6 @@ jobs:
                     name: app-text-file         
             - name: Test the app
               run: |
-                echo username is {{secrets.USERNAME}}
                 sleep $SLEEP_TIME
                 cat app.txt
                 echo "testing the app ..." >> app.txt
