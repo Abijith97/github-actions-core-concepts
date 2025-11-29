@@ -11,6 +11,9 @@ jobs:
                 exclude:
                     - os: windows-latest
                       image: alpine
+                include:
+                    - os: ubuntu-latest
+                      image: node:alpine
         runs-on: ${{ matrix.os }}
         steps:
           - name: Create a ${{ matrix.images }} container on ${{ matrix.os }}
